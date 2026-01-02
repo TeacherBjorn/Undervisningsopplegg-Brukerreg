@@ -4,6 +4,8 @@
 
 # Tilkobling til database
 
+Følgende: 
+
 <?php
 $servername = "localhost";
 $username = "root";
