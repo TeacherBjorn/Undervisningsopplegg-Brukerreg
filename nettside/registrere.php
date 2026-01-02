@@ -16,7 +16,7 @@ if (isset($_POST["registrer"])) {
             VALUES ('$navn', '$epost', '$hash')";
 // Sender bruker til en spesifikk nettside, eks medlemsområde. 
     if (mysqli_query($conn, $sql)) {
-    header("Location: login.php");
+    header("Location: medlem.php");
     exit();
     } else {
         echo "<p>Feil: " . mysqli_error($conn) . "</p>";
