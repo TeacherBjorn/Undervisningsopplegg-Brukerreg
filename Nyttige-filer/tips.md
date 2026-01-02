@@ -18,3 +18,10 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 ?>
+
+
+
+# HTML -> PHP
+
+
+# Koble til databasen i hver fil 
