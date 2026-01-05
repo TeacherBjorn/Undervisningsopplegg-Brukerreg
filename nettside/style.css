@@ -1,0 +1,8 @@
+div.regskjema {
+    background-color: #969696;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: auto;
+}
