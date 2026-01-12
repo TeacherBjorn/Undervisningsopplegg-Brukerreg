@@ -20,7 +20,6 @@ Prosjektet består av følgende filer:
 
 - `index.php`
 - `login.php`
-- `registrere.php`
 - `medlem.php`
 - `logout.php`
 - `style.css`
