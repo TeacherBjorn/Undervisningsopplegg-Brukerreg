@@ -23,13 +23,6 @@ Følgende:
 
 
 
-# HTML -> PHP
-
-
-
-# Koble til databasen i hver fil 
-
-
 # POST-metoden
 
 ## Bruk av POST-metoden
@@ -84,3 +77,78 @@ I PHP henter vi dataene ved hjelp av $_POST.
 - POST brukes til å sende data fra skjema til server
 - Dataene er ikke synlige i URL-en
 - POST er godt egnet når vi skal lagre data eller håndtere brukerinformasjon
+
+
+# PHP "Sessions"
+
+Når en bruker har registrert seg eller logget inn, ønsker vi ofte å sende brukeren videre til et medlemsområde. Et medlemsområde er en side som bare skal være tilgjengelig for brukere som er logget inn. For å oppnå dette kan vi bruke PHP sessions. 
+
+Fremgangsmetode:
+
+## 1: Starte en sesjon
+En sesjon lar serveren huske at brukeren er logget inn, selv om brukeren åpner nye sider.
+
+Dette må gjøres øverst i PHP-filen:
+```php
+<?php
+session_start();
+?>
+```
+
+## 2. Lagre at brukeren er logget inn
+
+Når registrering eller innlogging er vellykket, lagrer vi en verdi i $_SESSION. Eksempel i login.php eller registrer.php:
+
+```php
+<?php
+session_start();
+
+// Etter vellykket innlogging
+$_SESSION['innlogget'] = true;
+$_SESSION['brukernavn'] = $navn;
+
+// Send brukeren videre til medlemsområdet
+header("Location: medlem.php");
+exit();
+?>
+```
+- $_SESSION['innlogget'] = true → brukeren er logget inn
+
+- header("Location: medlem.php") → brukeren sendes videre
+
+## 3. Medlemsområde
+Medlemsområdet er en vanlig PHP-side, men vi sjekker først om brukeren er logget inn.
+```php
+<?php
+session_start();
+
+if (!isset($_SESSION['innlogget'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<h1>Velkommen til medlemsområdet</h1>
+<p>Du er nå logget inn.</p>
+<p>Bruker: <?php echo $_SESSION['brukernavn']; ?></p>
+
+```
+
+Hvis brukeren ikke er logget inn sendes de tilbake til innloggingssiden. 
+
+## 3. Logg ut
+
+```php
+<?php
+session_start();
+session_destroy();
+
+header("Location: login.html");
+exit();
+?>
+```
+
+## Sesjoner brukes for å huske innlogging
+- Etter vellykket registrering sendes brukeren til medlemsområdet
+- Medlemsområdet sjekker om brukeren er logget inn
+- Brukere som ikke er logget inn får ikke tilgang
