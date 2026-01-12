@@ -14,9 +14,9 @@ if (isset($_POST["registrer"])) {
 
     $sql = "INSERT INTO brukere (navn, epost, passord)
             VALUES ('$navn', '$epost', '$hash')";
-// Sender bruker til en spesifikk nettside, eks medlemsområde. 
+
     if (mysqli_query($conn, $sql)) {
-    header("Location: medlem.php");
+    header("Location: login.php");
     exit();
     } else {
         echo "<p>Feil: " . mysqli_error($conn) . "</p>";
@@ -24,25 +24,25 @@ if (isset($_POST["registrer"])) {
 }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Registrer bruker</title>
-         <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brukerregistrering demo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="topnav">
-  <a class="active" href="index.php">Hjem</a>
-  <a href="register.php">Register</a>
-  <a href="kontakt.php">Kontakt</a>
-  <a href="info.php">Informasjon</a>
-</div> 
-
-
-
-<h1>Registrer deg</h1>
+<div class="container">
+    <h1> Velkommen til denne nettsiden. </h1>
+    <p> Dette er en enkel nettside for å demonstrere brukerregistrering og pålogging. </p>  
+    <p> Vennligst registrer deg eller logg inn for å få tilgang til medlemsområdet. </p>
+    
+    <div class="regskjema"> 
 
 <form method="post">
     <label>Navn:</label><br>
@@ -56,6 +56,13 @@ if (isset($_POST["registrer"])) {
 
     <button type="submit" name="registrer">Registrer</button>
 </form>
+</div>
 
+<h3> Allerede medlem? <a href="login.php">Logg inn her</a></h3> 
+
+</div>
+
+
+    
 </body>
 </html>
