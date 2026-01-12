@@ -8,6 +8,7 @@
 
 Følgende: 
 
+```php
     <?php
     $servername = "localhost";
     $username = "root";
@@ -20,7 +21,7 @@ Følgende:
         die("Connection failed: " . mysqli_connect_error());
     }
 ?>
-
+```
 
 
 # POST-metoden
@@ -152,3 +153,5 @@ exit();
 - Etter vellykket registrering sendes brukeren til medlemsområdet
 - Medlemsområdet sjekker om brukeren er logget inn
 - Brukere som ikke er logget inn får ikke tilgang
+
+(test.ref.12.01)
