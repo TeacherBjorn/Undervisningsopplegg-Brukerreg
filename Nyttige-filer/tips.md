@@ -62,9 +62,12 @@ POST brukes ofte fordi:
 
     <button type="submit">Send</button>
 </form>
+```
 
-##Eksempel med PHP:
 
+
+### Eksempel: HTML-skjema med POST
+```php
 <?php
 $navn = $_POST['navn'];
 $epost = $_POST['epost'];
@@ -72,6 +75,7 @@ $epost = $_POST['epost'];
 echo "Navn: $navn <br>";
 echo "E-post: $epost";
 ?>
+```
 
 I PHP henter vi dataene ved hjelp av $_POST.
 
